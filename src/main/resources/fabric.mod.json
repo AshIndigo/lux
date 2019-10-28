@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.ashindigo.lux.Lux"
+    ],
+    "client": [
+      "com.ashindigo.lux.LuxClient"
     ]
   },
   "mixins": [
