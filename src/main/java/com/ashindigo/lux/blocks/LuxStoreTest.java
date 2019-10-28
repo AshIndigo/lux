@@ -1,8 +1,6 @@
 package com.ashindigo.lux.blocks;
 
-import com.ashindigo.lux.api.LuxElements;
-import com.ashindigo.lux.api.LuxReceiver;
-import net.minecraft.block.Block;
+import com.ashindigo.lux.tileentities.LuxStoreTestTE;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.BlockView;
@@ -14,6 +12,6 @@ public class LuxStoreTest extends BlockWithEntity {
 
     @Override
     public BlockEntity createBlockEntity(BlockView blockView) {
-        return null;
+        return new LuxStoreTestTE();
     }
 }

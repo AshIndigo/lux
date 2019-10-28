@@ -1,10 +1,10 @@
 package com.ashindigo.lux.tileentities;
 
+import com.ashindigo.lux.Lux;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 
 public class LuxStoreTestTE extends BlockEntity {
-    public LuxStoreTestTE(BlockEntityType<?> blockEntityType_1) {
-        super(blockEntityType_1);
+    public LuxStoreTestTE() {
+        super(Lux.luxStoreTE);
     }
 }

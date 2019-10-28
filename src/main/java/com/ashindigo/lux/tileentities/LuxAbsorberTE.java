@@ -1,5 +1,6 @@
 package com.ashindigo.lux.tileentities;
 
+import com.ashindigo.lux.Lux;
 import com.ashindigo.lux.api.LuxSource;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -11,8 +12,8 @@ public class LuxAbsorberTE extends BlockEntity implements LuxSource, Tickable {
     int storedLux = 0;
     private boolean running;
 
-    public LuxAbsorberTE(BlockEntityType<?> type) {
-        super(type);
+    public LuxAbsorberTE() {
+        super(Lux.luxAbsorberTE);
     }
 
     @Override
