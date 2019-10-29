@@ -1,7 +1,7 @@
 package com.ashindigo.lux.registry;
 
 import com.ashindigo.lux.client.LuxAbosrberRenderer;
-import com.ashindigo.lux.tileentities.LuxAbsorberBlockEntity;
+import com.ashindigo.lux.blockentities.LuxAbsorberBlockEntity;
 import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
 
 public class RendererRegistry {

@@ -1,6 +1,6 @@
 package com.ashindigo.lux.blocks;
 
-import com.ashindigo.lux.tileentities.LuxStorageBlockEntity;
+import com.ashindigo.lux.blockentities.LuxStorageBlockEntity;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.BlockView;
