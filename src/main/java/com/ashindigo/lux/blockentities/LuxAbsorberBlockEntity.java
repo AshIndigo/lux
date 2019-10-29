@@ -1,4 +1,4 @@
-package com.ashindigo.lux.tileentities;
+package com.ashindigo.lux.blockentities;
 
 import com.ashindigo.lux.api.LuxSource;
 import com.ashindigo.lux.registry.BlockEntityRegistry;
