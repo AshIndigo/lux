@@ -1,4 +1,5 @@
 {
-  "block.lux.luxabsorber": "Lux Absorber",
+  "block.lux.lux_absorber": "Lux Absorber",
+  "block.lux.lux_storage": "Lux Storage",
   "itemGroup.lux.lux": "Lux"
 }

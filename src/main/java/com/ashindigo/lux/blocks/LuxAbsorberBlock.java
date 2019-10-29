@@ -1,6 +1,6 @@
 package com.ashindigo.lux.blocks;
 
-import com.ashindigo.lux.tileentities.LuxAbsorberTE;
+import com.ashindigo.lux.tileentities.LuxAbsorberBlockEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -8,15 +8,15 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
-public class LuxAbsorber extends BlockWithEntity {
+public class LuxAbsorberBlock extends BlockWithEntity {
 
-    public LuxAbsorber(Settings block$Settings_1) {
+    public LuxAbsorberBlock(Settings block$Settings_1) {
         super(block$Settings_1);
     }
 
     @Override
     public BlockEntity createBlockEntity(BlockView blockView) {
-        return new LuxAbsorberTE();
+        return new LuxAbsorberBlockEntity();
     }
 
     @Override
