@@ -1,8 +1,8 @@
 package com.ashindigo.lux.registry;
 
 import com.ashindigo.lux.Lux;
-import com.ashindigo.lux.tileentities.LuxAbsorberBlockEntity;
-import com.ashindigo.lux.tileentities.LuxStorageBlockEntity;
+import com.ashindigo.lux.blockentities.LuxAbsorberBlockEntity;
+import com.ashindigo.lux.blockentities.LuxStorageBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
