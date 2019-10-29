@@ -1,6 +1,6 @@
 package com.ashindigo.lux.blocks;
 
-import com.ashindigo.lux.tileentities.LuxAbsorberBlockEntity;
+import com.ashindigo.lux.blockentities.LuxAbsorberBlockEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;

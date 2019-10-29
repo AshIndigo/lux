@@ -1,4 +1,4 @@
-package com.ashindigo.lux.tileentities;
+package com.ashindigo.lux.blockentities;
 
 import com.ashindigo.lux.api.LuxElements;
 import com.ashindigo.lux.api.LuxReceiver;
@@ -13,14 +13,15 @@ public class LuxStorageBlockEntity extends BlockEntity implements LuxStorage, Lu
 		super(BlockEntityRegistry.LUX_STORAGE_BLOCK_ENTITY);
 	}
 
-	@Override
-	public void receiveLux(LuxElements lux, int amount) {
 
+	@Override
+	public int receiveLux(LuxElements lux, int amount) {
+		return 0;
 	}
 
 	@Override
-	public boolean canRecieve(LuxElements lux) {
-		return true;
+	public boolean canReceive(LuxElements lux) {
+		return false;
 	}
 
 	@Override
