@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "lux:block/lux_absorber"
+		}
+	}
+}
