@@ -17,5 +17,7 @@ public interface LuxSource {
 	 *
 	 * @return Is it currently generating
 	 */
-	boolean isRunning();
+	boolean isGenerating();
+
+
 }

@@ -1,14 +1,14 @@
 package com.ashindigo.lux.tileentities;
 
 import com.ashindigo.lux.api.LuxSource;
+import com.ashindigo.lux.api.LuxStorage;
 import com.ashindigo.lux.registry.BlockEntityRegistry;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.Tickable;
 
-public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Tickable {
+public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Tickable, LuxStorage {
 
-	int maxLuxStorage = 5000;
-	int storedLux = 0;
+	private int storedLux = 0;
 	private boolean running;
 
 	public LuxAbsorberBlockEntity() {
@@ -17,11 +17,11 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
 
 	@Override // Assuming WIP
 	public boolean canRun() {
-		return getWorld().isDaylight() && getWorld().isSkyVisible(pos) && storedLux < maxLuxStorage;
+		return getWorld().isDaylight() && getWorld().isSkyVisible(pos) && getStoredLux() < getStoredLux();
 	}
 
 	@Override // Assuming WIP
-	public boolean isRunning() {
+	public boolean isGenerating() {
 		return running;
 	}
 
@@ -29,5 +29,15 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
 	public void tick() {
 		storedLux = canRun() ? storedLux + 1 : storedLux;
 		running = canRun();
+	}
+
+	@Override
+	public int getStoredLux() {
+		return storedLux;
+	}
+
+	@Override
+	public int getMaxCapacity() {
+		return 5000;
 	}
 }
