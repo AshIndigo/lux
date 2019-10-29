@@ -14,6 +14,9 @@ import net.minecraft.util.registry.Registry;
 import java.util.function.Function;
 
 public class BlockRegistry {
+	public static final Block LUX_ABSORBER_BLOCK = register("lux_absorber", new LuxAbsorberBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
+	public static final Block LUX_STORAGE = register("lux_storage", new LuxStorageBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
+
 	private BlockRegistry() {
 		// NO-OP
 	}
@@ -21,9 +24,6 @@ public class BlockRegistry {
 	public static void initialize() {
 		// NO-OP
 	}
-
-	public static final Block LUX_ABSORBER_BLOCK = register("lux_absorber", new LuxAbsorberBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
-	public static final Block LUX_STORAGE = register("lux_storage", new LuxStorageBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
 
 	public static <T extends Block> T register(String name, T block, Item.Settings settings) {
 		return register(name, block, new BlockItem(block, settings));

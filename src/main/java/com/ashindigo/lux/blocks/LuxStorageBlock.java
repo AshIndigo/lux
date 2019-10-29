@@ -6,12 +6,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.BlockView;
 
 public class LuxStorageBlock extends BlockWithEntity {
-    public LuxStorageBlock(Settings block$Settings_1) {
-        super(block$Settings_1);
-    }
+	public LuxStorageBlock(Settings block$Settings_1) {
+		super(block$Settings_1);
+	}
 
-    @Override
-    public BlockEntity createBlockEntity(BlockView blockView) {
-        return new LuxStorageBlockEntity();
-    }
+	@Override
+	public BlockEntity createBlockEntity(BlockView blockView) {
+		return new LuxStorageBlockEntity();
+	}
 }

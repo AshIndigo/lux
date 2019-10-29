@@ -6,14 +6,14 @@ import net.minecraft.util.Identifier;
 
 public class LuxAbosrberRenderer extends BlockEntityRenderer<LuxAbsorberBlockEntity> {
 
-    private static final Identifier BEAM = new Identifier("minecraft", "textures/entity/beacon_beam.png");
+	private static final Identifier BEAM = new Identifier("minecraft", "textures/entity/beacon_beam.png");
 
 
-    @Override
-    public void render(LuxAbsorberBlockEntity blockEntity, double x, double y, double z, float partialTicks, int destroyStage) {
-        //GlStateManager.pushMatrix();
-        if (blockEntity.isRunning()) {
+	@Override
+	public void render(LuxAbsorberBlockEntity blockEntity, double x, double y, double z, float partialTicks, int destroyStage) {
+		//GlStateManager.pushMatrix();
+		if (blockEntity.isRunning()) {
 
-        }
-    }
+		}
+	}
 }

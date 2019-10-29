@@ -1,5 +1,7 @@
 {
-  "variants": {
-    "": { "model": "lux:block/lux_absorber" }
-  }
+	"variants": {
+		"": {
+			"model": "lux:block/lux_absorber"
+		}
+	}
 }

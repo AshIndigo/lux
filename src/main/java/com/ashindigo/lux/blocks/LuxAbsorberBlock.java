@@ -10,28 +10,28 @@ import net.minecraft.world.BlockView;
 
 public class LuxAbsorberBlock extends BlockWithEntity {
 
-    public LuxAbsorberBlock(Settings block$Settings_1) {
-        super(block$Settings_1);
-    }
+	public LuxAbsorberBlock(Settings block$Settings_1) {
+		super(block$Settings_1);
+	}
 
-    @Override
-    public BlockEntity createBlockEntity(BlockView blockView) {
-        return new LuxAbsorberBlockEntity();
-    }
+	@Override
+	public BlockEntity createBlockEntity(BlockView blockView) {
+		return new LuxAbsorberBlockEntity();
+	}
 
-    @Override
-    @Deprecated
-    public BlockRenderType getRenderType(BlockState blockState_1) {
-        return BlockRenderType.MODEL;
-    }
+	@Override
+	@Deprecated
+	public BlockRenderType getRenderType(BlockState blockState_1) {
+		return BlockRenderType.MODEL;
+	}
 
-    @Override
-    public boolean isOpaque(BlockState blockState_1) {
-        return false;
-    }
+	@Override
+	public boolean isOpaque(BlockState blockState_1) {
+		return false;
+	}
 
-    @Override
-    public boolean isSimpleFullBlock(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1) {
-        return false;
-    }
+	@Override
+	public boolean isSimpleFullBlock(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1) {
+		return false;
+	}
 }

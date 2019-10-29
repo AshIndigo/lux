@@ -5,15 +5,17 @@ package com.ashindigo.lux.api;
  */
 public interface LuxSource {
 
-    /**
-     * Whether or not the source can output Lux
-     * @return Can it generate?
-     */
-    boolean canRun();
+	/**
+	 * Whether or not the source can output Lux
+	 *
+	 * @return Can it generate?
+	 */
+	boolean canRun();
 
-    /**
-     * Is the source generating Lux?
-     * @return Is it currently generating
-     */
-    boolean isRunning();
+	/**
+	 * Is the source generating Lux?
+	 *
+	 * @return Is it currently generating
+	 */
+	boolean isRunning();
 }

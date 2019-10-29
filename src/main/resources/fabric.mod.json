@@ -1,35 +1,31 @@
 {
-  "schemaVersion": 1,
-  "id": "lux",
-  "version": "${version}",
-
-  "name": "Lux",
-  "description": "Magic mod based around lasers and light",
-  "authors": [
-    "AshIndigo"
-  ],
-  "contact": {
-    "homepage": "https://github.com/AshIndigo/lux",
-    "sources": "https://github.com/AshIndigo/lux"
-  },
-
-  "license": "",
-  "icon": "assets/lux/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.ashindigo.lux.Lux"
-    ],
-    "client": [
-      "com.ashindigo.lux.LuxClient"
-    ]
-  },
-  "mixins": [
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.4.0",
-    "fabric": "*"
-  }
+	"schemaVersion": 1,
+	"id": "lux",
+	"version": "${version}",
+	"name": "Lux",
+	"description": "Magic mod based around lasers and light",
+	"authors": [
+		"AshIndigo"
+	],
+	"contact": {
+		"homepage": "https://github.com/AshIndigo/lux",
+		"sources": "https://github.com/AshIndigo/lux"
+	},
+	"license": "",
+	"icon": "assets/lux/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ashindigo.lux.Lux"
+		],
+		"client": [
+			"com.ashindigo.lux.LuxClient"
+		]
+	},
+	"mixins": [
+	],
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	}
 }

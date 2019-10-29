@@ -1,6 +1,6 @@
 plugins {
-	id 'fabric-loom' version '0.2.5-SNAPSHOT'
-	id 'maven-publish'
+    id 'fabric-loom' version '0.2.5-SNAPSHOT'
+    id 'maven-publish'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -14,59 +14,59 @@ minecraft {
 }
 
 dependencies {
-	// Vanilla / Loader / Mappings
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}"
-	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
+    // Vanilla / Loader / Mappings
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}"
+    modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API
-	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Fabric API
+    modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 processResources {
-	inputs.property "version", project.version
+    inputs.property "version", project.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		expand "version": project.version
-	}
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand "version": project.version
+    }
 
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-	}
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
 }
 
 tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
+    options.encoding = "UTF-8"
 }
 
 // Generate source JARs on Build
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+    classifier = "sources"
+    from sourceSets.main.allSource
 }
 
 jar {
-	from "LICENSE"
+    from "LICENSE"
 }
 
 // Configure Maven publication
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			// JARs to include in publication
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
-		}
-	}
+    publications {
+        mavenJava(MavenPublication) {
+            // JARs to include in publication
+            artifact(remapJar) {
+                builtBy remapJar
+            }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+        }
+    }
 
-	// Repositories to publish to
-	repositories {
-		// Uncomment to publish to local Maven
-		// mavenLocal()
-	}
+    // Repositories to publish to
+    repositories {
+        // Uncomment to publish to local Maven
+        // mavenLocal()
+    }
 }
