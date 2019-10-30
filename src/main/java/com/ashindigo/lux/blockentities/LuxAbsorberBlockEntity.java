@@ -29,6 +29,7 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
 	public void tick() {
 		storedLux = canRun() ? storedLux + 1 : storedLux;
 		running = canRun();
+
 	}
 
 	@Override
