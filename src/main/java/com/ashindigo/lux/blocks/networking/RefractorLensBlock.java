@@ -1,10 +1,13 @@
 package com.ashindigo.lux.blocks.networking;
 
 import com.ashindigo.lux.api.LuxNetworkNode;
+import com.ashindigo.lux.blockentities.networking.RefractorLensTileEntity;
 import com.ashindigo.lux.util.networking.LuxNetworkUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateFactory;
 import net.minecraft.state.property.DirectionProperty;
@@ -18,11 +21,11 @@ import net.minecraft.world.World;
 
 import java.util.Map;
 
-public class RefractorLensBlock extends Block implements LuxNetworkNode {
+public class RefractorLensBlock extends BlockWithEntity {
     private static final DirectionProperty FACING;
 
     static {
-        FACING = Properties.HORIZONTAL_FACING;
+        FACING = Properties.FACING;
     }
 
     public RefractorLensBlock(Settings settings) {
@@ -66,18 +69,7 @@ public class RefractorLensBlock extends Block implements LuxNetworkNode {
     }
 
     @Override
-    public LuxNetworkNode getNextNode(World world, BlockPos pos) {
-        Map<BlockState, BlockPos> map = LuxNetworkUtil.simpleLOSCheck(world, pos, 16, world.getBlockState(pos).get(FACING));
-        return (map.keySet().iterator().next().getBlock() instanceof LuxNetworkNode) ? (LuxNetworkNode) map.keySet().iterator().next().getBlock() : this;
-    }
-
-    @Override
-    public BlockPos getPos() {
-        return null;
-    }
-
-    @Override
-    public BlockState getState() {
-        return null;
+    public BlockEntity createBlockEntity(BlockView blockView) {
+        return new RefractorLensTileEntity();
     }
 }

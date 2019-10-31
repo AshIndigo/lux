@@ -49,12 +49,4 @@ public class LuxStorageBlockEntity extends BlockEntity implements LuxStorage, Lu
 	public LuxNetworkNode getNextNode(World world, BlockPos pos) {
 		return this;
 	}
-
-	@Override
-	public BlockState getState() {
-		if (world != null) {
-			return world.getBlockState(pos);
-		}
-		return null;
-	}
 }

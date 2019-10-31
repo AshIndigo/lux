@@ -3,11 +3,14 @@ package com.ashindigo.lux.blockentities;
 import com.ashindigo.lux.api.*;
 import com.ashindigo.lux.registry.BlockEntityRegistry;
 import com.ashindigo.lux.util.networking.LuxNetworkUtil;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import java.util.Collections;
 import java.util.Map;
@@ -23,7 +26,7 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
 
     @Override // Assuming WIP
     public boolean canRun() {
-        return getWorld().isDaylight() && getWorld().isSkyVisible(pos) && getStoredLux() < getStoredLux();
+        return getWorld().isDaylight() && getWorld().isSkyVisible(pos.offset(Direction.UP)) && getStoredLux() < getMaxCapacity();
     }
 
     @Override // Assuming WIP
@@ -41,11 +44,12 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
                 Map<BlockState, BlockPos> prev = Collections.singletonMap(world.getBlockState(pos), pos);
 				LuxNetworkNode node = null;
                 while (cur != prev) { // Could infinitely loop or last for a long time
-                	node = ((LuxNetworkNode) prev.keySet().iterator().next()).getNextNode(world, prev.values().iterator().next());
+                	node = ((LuxNetworkNode) world.getBlockEntity(prev.values().iterator().next())).getNextNode(world, prev.values().iterator().next());
                     if (node instanceof LuxReceiver) {
                     	break;
 					}
-					cur = Collections.singletonMap(node.getState(), node.getPos());
+					cur = Collections.singletonMap(world.getBlockState(((BlockEntity)node).getPos()), ((BlockEntity)node).getPos());
+                    prev = cur;
                 }
 				if (node instanceof LuxReceiver && ((LuxReceiver) node).canReceive(LuxElements.WHITE)) {
 					((LuxReceiver) node).receiveLux(LuxElements.WHITE, 1);
@@ -63,5 +67,11 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
     @Override
     public int getMaxCapacity() {
         return 5000;
+    }
+
+    @Override
+    public LuxNetworkNode getNextNode(World world, BlockPos pos) {
+        Map<BlockState, BlockPos> map = LuxNetworkUtil.simpleLOSCheck(world, pos, 16, world.getBlockState(pos).get(Properties.FACING));
+        return (world.getBlockEntity(map.values().iterator().next()) instanceof LuxNetworkNode) ? (LuxNetworkNode) world.getBlockEntity(map.values().iterator().next()): this;
     }
 }

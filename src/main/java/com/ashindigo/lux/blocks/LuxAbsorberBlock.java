@@ -21,7 +21,7 @@ public class LuxAbsorberBlock extends BlockWithEntity {
     private static final DirectionProperty FACING;
 
     static {
-        FACING = Properties.HORIZONTAL_FACING;
+        FACING = Properties.FACING;
     }
 
     public LuxAbsorberBlock(Settings settings) {

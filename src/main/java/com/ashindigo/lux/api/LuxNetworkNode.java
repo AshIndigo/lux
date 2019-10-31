@@ -1,6 +1,5 @@
 package com.ashindigo.lux.api;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -14,9 +13,5 @@ public interface LuxNetworkNode {
      * @return The next node in the network
      */
     LuxNetworkNode getNextNode(World world, BlockPos pos);
-
-    BlockPos getPos();
-
-    BlockState getState();
 }
 
