@@ -1,6 +1,6 @@
 package com.ashindigo.lux.api;
 
-public interface LuxReceiver {
+public interface LuxReceiver extends LuxNetworkNode {
 
 	/**
 	 * Receive lux from another source
