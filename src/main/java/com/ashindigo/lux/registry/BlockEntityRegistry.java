@@ -3,7 +3,7 @@ package com.ashindigo.lux.registry;
 import com.ashindigo.lux.Lux;
 import com.ashindigo.lux.blockentities.LuxAbsorberBlockEntity;
 import com.ashindigo.lux.blockentities.LuxStorageBlockEntity;
-import com.ashindigo.lux.blockentities.networking.RefractorLensTileEntity;
+import com.ashindigo.lux.blockentities.networking.RefractingLensBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -24,7 +24,7 @@ public class BlockEntityRegistry {
 			BlockRegistry.LUX_STORAGE
 	);
 
-	public static final BlockEntityType<RefractorLensTileEntity> REFRACTOR_LENS_BLOCK_ENTITY = register("refractor_lens", RefractorLensTileEntity::new, BlockRegistry.REFRACTOR_LENS);
+	public static final BlockEntityType<RefractingLensBlockEntity> REFRACTING_LENS_BLOCK_ENTITY = register("refracting_lens", RefractingLensBlockEntity::new, BlockRegistry.REFRACTING_LENS);
 
 	private BlockEntityRegistry() {
 		// NO-OP

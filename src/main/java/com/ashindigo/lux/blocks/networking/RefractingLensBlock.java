@@ -1,8 +1,6 @@
 package com.ashindigo.lux.blocks.networking;
 
-import com.ashindigo.lux.api.LuxNetworkNode;
-import com.ashindigo.lux.blockentities.networking.RefractorLensTileEntity;
-import com.ashindigo.lux.util.networking.LuxNetworkUtil;
+import com.ashindigo.lux.blockentities.networking.RefractingLensBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -17,18 +15,15 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
-import java.util.Map;
-
-public class RefractorLensBlock extends BlockWithEntity {
+public class RefractingLensBlock extends BlockWithEntity {
     private static final DirectionProperty FACING;
 
     static {
         FACING = Properties.FACING;
     }
 
-    public RefractorLensBlock(Settings settings) {
+    public RefractingLensBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateFactory.getDefaultState().with(FACING, Direction.NORTH));
     }
@@ -70,6 +65,6 @@ public class RefractorLensBlock extends BlockWithEntity {
 
     @Override
     public BlockEntity createBlockEntity(BlockView blockView) {
-        return new RefractorLensTileEntity();
+        return new RefractingLensBlockEntity();
     }
 }

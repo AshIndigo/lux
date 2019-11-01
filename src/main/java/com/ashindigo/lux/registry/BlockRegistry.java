@@ -3,7 +3,7 @@ package com.ashindigo.lux.registry;
 import com.ashindigo.lux.Lux;
 import com.ashindigo.lux.blocks.LuxAbsorberBlock;
 import com.ashindigo.lux.blocks.LuxStorageBlock;
-import com.ashindigo.lux.blocks.networking.RefractorLensBlock;
+import com.ashindigo.lux.blocks.networking.RefractingLensBlock;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -17,7 +17,7 @@ import java.util.function.Function;
 public class BlockRegistry {
 	public static final Block LUX_ABSORBER_BLOCK = register("lux_absorber", new LuxAbsorberBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
 	public static final Block LUX_STORAGE = register("lux_storage", new LuxStorageBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
-	public static final Block REFRACTOR_LENS = register("refractor_lens", new RefractorLensBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
+	public static final Block REFRACTING_LENS = register("refracting_lens", new RefractingLensBlock(FabricBlockSettings.of(Material.METAL).strength(3F, 3F).build()), new Item.Settings().group(Lux.ITEM_GROUP));
 
 	private BlockRegistry() {
 		// NO-OP

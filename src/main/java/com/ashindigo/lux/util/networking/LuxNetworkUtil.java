@@ -18,7 +18,7 @@ public class LuxNetworkUtil {
      * @param pos       Starting position
      * @param distance  Max distance for line of sight
      * @param direction The direction in which to test
-     * @return The block hit
+     * @return A key value map with the block state and its position
      */
     public static Map<BlockState, BlockPos> simpleLOSCheck(World world, BlockPos pos, int distance, Direction direction) {
         for (int i = 1; i <= distance; i++) {

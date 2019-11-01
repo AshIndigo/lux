@@ -1,5 +1,7 @@
 {
 	"block.lux.lux_absorber": "Lux Absorber",
 	"block.lux.lux_storage": "Lux Storage",
+	"block.lux.refracting_lens": "Refracting Lens",
+	"item.lux.screwdriver": "Screwdriver",
 	"itemGroup.lux.lux": "Lux"
 }

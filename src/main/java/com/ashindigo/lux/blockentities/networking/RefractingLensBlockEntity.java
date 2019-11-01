@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 import java.util.Map;
 
 
-public class RefractorLensTileEntity extends BlockEntity implements LuxNetworkNode {
-    public RefractorLensTileEntity() {
-        super(BlockEntityRegistry.REFRACTOR_LENS_BLOCK_ENTITY);
+public class RefractingLensBlockEntity extends BlockEntity implements LuxNetworkNode {
+    public RefractingLensBlockEntity() {
+        super(BlockEntityRegistry.REFRACTING_LENS_BLOCK_ENTITY);
     }
 
 
