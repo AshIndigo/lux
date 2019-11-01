@@ -40,21 +40,36 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
         running = canRun();
         if (getStoredLux() > 0) {
             if (world != null) {
-				Map<BlockState, BlockPos> cur = null;
-                Map<BlockState, BlockPos> prev = Collections.singletonMap(world.getBlockState(pos), pos);
-				LuxNetworkNode node = null;
-                while (cur != prev) { // Could infinitely loop or last for a long time
-                	node = ((LuxNetworkNode) world.getBlockEntity(prev.values().iterator().next())).getNextNode(world, prev.values().iterator().next());
-                    if (node instanceof LuxReceiver) {
-                    	break;
-					}
-					cur = Collections.singletonMap(world.getBlockState(((BlockEntity)node).getPos()), ((BlockEntity)node).getPos());
-                    prev = cur;
+                LuxNetworkNode node = this;
+                while (!(node instanceof LuxReceiver)) {
+                   LuxNetworkNode tempNode = node.getNextNode(world, node.getPos());
+                    if (node == tempNode) {
+                        break;
+                    } else {
+                        node = tempNode;
+                    }
                 }
-				if (node instanceof LuxReceiver && ((LuxReceiver) node).canReceive(LuxElements.WHITE)) {
-					((LuxReceiver) node).receiveLux(LuxElements.WHITE, 1);
-					storedLux -= 1;
-				}
+                if (node instanceof LuxReceiver && ((LuxReceiver) node).canReceive(LuxElements.WHITE)) {
+                    ((LuxReceiver) node).receiveLux(LuxElements.WHITE, 1);
+                    storedLux -= 1;
+
+                }
+//				Map<BlockState, BlockPos> cur = null;
+////                Map<BlockState, BlockPos> prev = Collections.singletonMap(world.getBlockState(pos), pos);
+////				LuxNetworkNode node = null;
+////                while (cur != prev) { // Could infinitely loop or last for a long time
+////                	node = ((LuxNetworkNode) world.getBlockEntity(prev.values().iterator().next())).getNextNode(world, prev.values().iterator().next());
+////                    if (node instanceof LuxReceiver) {
+////                    	break;
+////					}
+////                    prev = cur;
+////					cur = Collections.singletonMap(world.getBlockState(((BlockEntity)node).getPos()), ((BlockEntity)node).getPos());
+////                    //prev = cur;
+////                }
+////				if (node instanceof LuxReceiver && ((LuxReceiver) node).canReceive(LuxElements.WHITE)) {
+////					((LuxReceiver) node).receiveLux(LuxElements.WHITE, 1);
+////					storedLux -= 1;
+////				}
 			}
         }
     }

@@ -21,6 +21,7 @@ public class LuxStorageBlockEntity extends BlockEntity implements LuxStorage, Lu
 
 	@Override
 	public int receiveLux(LuxElements lux, int amount) {
+		System.out.println(storedLux);
 		if (storedLux + amount < getMaxCapacity()) {
 			storedLux += amount;
 			return 0;

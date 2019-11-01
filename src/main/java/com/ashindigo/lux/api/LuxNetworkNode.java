@@ -3,7 +3,6 @@ package com.ashindigo.lux.api;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-// TODO Gonna need TE's so I can have position
 public interface LuxNetworkNode {
 
     /**
@@ -13,5 +12,7 @@ public interface LuxNetworkNode {
      * @return The next node in the network
      */
     LuxNetworkNode getNextNode(World world, BlockPos pos);
+
+    BlockPos getPos();
 }
 
