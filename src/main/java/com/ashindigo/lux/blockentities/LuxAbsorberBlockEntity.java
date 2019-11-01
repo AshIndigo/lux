@@ -4,6 +4,7 @@ import com.ashindigo.lux.api.*;
 import com.ashindigo.lux.registry.BlockEntityRegistry;
 import com.ashindigo.lux.util.networking.LuxNetworkUtil;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Tickable;
@@ -42,9 +43,10 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
         if (getStoredLux() > 0) {
             if (world != null) {
                 LuxNetworkNode node = this;
+                LuxNetworkNode tempNode;
                 while (!(node instanceof LuxReceiver)) {
-                    LuxNetworkNode tempNode = node.getNextNode(world, node.getPos()); // Infinite loop issue, keep track of previous node?
-                    if (node == tempNode) {
+                    tempNode = node.getNextNode(world, node.getPos()); // Infinite loop issue, keep track of previous node?
+                    if (node == tempNode && !(tempNode instanceof LuxSource)) {
                         break;
                     } else {
                         node = tempNode;
@@ -72,6 +74,8 @@ public class LuxAbsorberBlockEntity extends BlockEntity implements LuxSource, Ti
     @Override
     public LuxNetworkNode getNextNode(World world, BlockPos pos) {
         Map<BlockState, BlockPos> map = LuxNetworkUtil.simpleLOSCheck(world, pos, 16, world.getBlockState(pos).get(Properties.FACING));
-        return (world.getBlockEntity(map.values().iterator().next()) instanceof LuxNetworkNode) ? (LuxNetworkNode) world.getBlockEntity(map.values().iterator().next()) : this;
+        if (world.getBlockState(map.values().iterator().next()).getBlock() instanceof BlockWithEntity) {
+            return (world.getBlockEntity(map.values().iterator().next()) instanceof LuxNetworkNode) ? (LuxNetworkNode) world.getBlockEntity(map.values().iterator().next()) : this;
+        }
     }
 }
